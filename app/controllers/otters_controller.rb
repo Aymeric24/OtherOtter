@@ -4,7 +4,7 @@ class OttersController < ApplicationController
   end
 
   def new 
-    @otters = Otter.new
+    @otter = Otter.new
   end
 
   def create 
