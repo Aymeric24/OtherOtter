@@ -1,15 +1,15 @@
 class OttersController < ApplicationController
-  def index 
+  def index
     @otters = Otter.all
   end
 
-  def new 
+  def new
     @otter = Otter.new
   end
 
-  def create 
+  def create
     @otter = Otter.new(otter_params)
-    @otter.save 
+    @otter.save
     redirect_to otter_path(@otter)
   end
 
@@ -17,4 +17,5 @@ class OttersController < ApplicationController
 
   def otter_params
     params.require(:otter).permit(:name, :age, :rating, :personality)
+  end
 end
