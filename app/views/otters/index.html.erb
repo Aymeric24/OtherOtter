@@ -1,14 +1,16 @@
 <h1>Otters index</h1>
 
-<% @otters.each do |otter| %>
-  <%= otter.name %>
-<% end %>
 
 <% @otters.each do |otter| %>
+  <%= otter.name %>
   <% if policy(otter).edit? %>
     <%= link_to "Update", edit_otter_path(otter) %>
   <% end %>
+  <%if policy(otter).destroy? %>
+    <%= link_to "Delete", otter_path(otter), method: :delete %>
+  <% end %>
 <% end %>
+
 
 <%if policy(Otter).create? %>
   <%= link_to "New otter", new_otter_path %>

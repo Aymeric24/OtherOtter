@@ -1,4 +1,5 @@
 class OtterPolicy < ApplicationPolicy
+
   def create?
     true
   end
