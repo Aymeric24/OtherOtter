@@ -2,6 +2,7 @@ class OttersController < ApplicationController
   def index
     # @otters = Otter.all
     @otters = policy_scope(Otter).order(created_at: :desc)
+    # petit commentaire de merde a retirer
   end
 
   def show
