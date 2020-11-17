@@ -1,10 +1,7 @@
 class OttersController < ApplicationController
   def index
+    # @otters = Otter.all
     @otters = policy_scope(Otter).order(created_at: :desc)
-  end
-
-  def show
-    @otter = Otter.find(params[:id])
   end
 
   def show
@@ -28,16 +25,19 @@ class OttersController < ApplicationController
 
   def edit
     @otter = Otter.find(params[:id])
+    authorize @otter
   end
 
   def update
     @otter = Otter.find(params[:id])
+    authorize @otter
     @otter.update(otter_params)
     redirect_to otter_path(@otter)
   end
 
   def destroy
     @otter = Otter.find(params[:id])
+    authorize @otter
     @otter.destroy
     redirect_to otters_path
   end
