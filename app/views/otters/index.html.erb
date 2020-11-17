@@ -1,0 +1,15 @@
+<h1>Otters index</h1>
+
+<% @otters.each do |otter| %>
+  <%= otter.name %>
+<% end %>
+
+<% @otters.each do |otter| %>
+  <% if policy(otter).edit? %>
+    <%= link_to "Update", edit_otter_path(otter) %>
+  <% end %>
+<% end %>
+
+<%if policy(Otter).create? %>
+  <%= link_to "New otter", new_otter_path %>
+<% end %>
