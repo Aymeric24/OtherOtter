@@ -1,6 +1,10 @@
 class OttersController < ApplicationController
   def index
-    @otters = Otter.all
+    @otters = policy_scope(Otter).order(created_at: :desc)
+  end
+
+  def show
+    @otter = Otter.find(params[:id])
   end
 
   def show
@@ -9,10 +13,12 @@ class OttersController < ApplicationController
 
   def new
     @otter = Otter.new
+    authorize @otter
   end
 
   def create
     @otter = Otter.new(otter_params)
+    authorize @otter
     if @otter.save
       redirect_to otter_path(@otter)
     else
