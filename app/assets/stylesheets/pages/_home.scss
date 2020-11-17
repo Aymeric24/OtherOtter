@@ -2,34 +2,164 @@
 
 // SVG ID
 #aae1ed4c-b8bc-4bb0-b7ae-eef70b764383 {
-  width: 90%;
+  display: inline-flex;
+  align-self: center;
+  height:30em;
+  width:30em;
+  position: relative;
 }
 
 .svg-home-header{
-    left:10%;
+  left:10%;
 }
 .main-header {
   height:60vh;
 }
 
-// Main Text "Welcome"
-.main-text-home{
-  padding-top: 10%;
-}
-
 .small-underline{
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid grey;
 }
 
-#welcome-title{
+// Really Small Devices
+
+@media (max-width: 575.98px) {
+  #welcome-title{
+  color:#CD7272;
+  font-size: 40px;
+  }
+
+  #welcome-message{
+  font-size: 20px;
+  }
+
+.svg-home-header{
+  display: none;
+  }
+
+
+  .small-underline{
+    display: none;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  #welcome-title{
   color:#CD7272;
   font-size: 80px;
+  }
+  #welcome-message{
+  font-size: 20px;
+  }
+  .svg-home-header{
+  display: none;
+  }
+  #main-header {
+  height: 30%;
+  }
+  #underline-and-arrow{
+    margin-bottom: 10px;
+  }
 }
 
-#welcome-message{
+  // Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991.98px) {
+  #welcome-title{
+  color:#CD7272;
+  font-size: 80px;
+  }
+  .svg-home-header{
+  display: none;
+  }
+  #main-header {
+  height: 30%;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199.99px) {
+  #welcome-title{
+  color:#CD7272;
+  font-size: 80px;
+  }
+
+  #welcome-message{
   font-size: 30px;
+  }
+
+  .svg-home-header{
+  display: none;
+  }
+  #main-header {
+  height: 30%;
+  }
 }
 
-#otter-stars-title{
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) and (max-width: 1499.99px) {
+  #welcome-title{
+  color:#CD7272;
+  font-size: 80px;
+  }
+
+  #welcome-message{
+  font-size: 30px;
+  }
+  #main-header {
+  height: 30%;
+  }
+  #aae1ed4c-b8bc-4bb0-b7ae-eef70b764383 {
+    top: 0em;
+  }
+  .arrow-next-otter{
+    display: none;
+  }
+}
+
+// Even Extra largerrrrrr devices (large desktops, 1200px and up)
+@media (min-width: 1500px) {
+  #welcome-title{
+  color:#CD7272;
+  font-size: 80px;
+  }
+
+  #welcome-message{
+  font-size: 30px;
+  }
+  #main-header {
+  height: 30%;
+  }
+  #aae1ed4c-b8bc-4bb0-b7ae-eef70b764383 {
+    top: 5em;
+  }
+  .arrow-next-otter{
+    display: none;
+  }
+}
+
+  #welcome-title{
+  text-shadow: 1px 1px 2px grey;
+  }
+
+#otter-stars{
   margin-top: 10px;
+}
+
+.arrow-next-otter{
+  display:inline-block;
+  margin: 0 auto;
+  font-size: 40px;
+  line-height: 50px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+#otter-stars-card{
+  margin: 0 auto;
+}
+.fa-arrow-alt-circle-down{
+  color: #cd7272;
 }
