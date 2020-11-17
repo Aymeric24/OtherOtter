@@ -7,6 +7,10 @@ class OttersController < ApplicationController
     @otter = Otter.find(params[:id])
   end
 
+  def show
+    @otter = Otter.find(params[:id])
+  end
+
   def new
     @otter = Otter.new
     authorize @otter
