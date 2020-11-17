@@ -46,4 +46,10 @@ Rails.application.configure do
 
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
+
+  # SVG precompile assets
+  config.assets.precompile += %w( '.svg' )
+
+  # Must include to get inline SVGs to work in deploy
+  config.assets.css_compressor = :sass
 end
