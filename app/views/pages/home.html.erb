@@ -1,7 +1,41 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="row justify-items-around d-flex main-header"  >
+    <span class="svg-home-header col-4">
+    <%= show_svg("unexpected_friends.svg") %>
+    </span>
+  <div class="col-7 main-text-home justify-content-center text-center">
+    <h1 id="welcome-title">Welcome to Other Otter</h1>
+    <p id="welcome-message">Come and find your S.O (Significant Otter).</p>
+  </div>
+</div>
 
-<% if user_signed_in? %>
-<h3> HELLO CONNECTION </h3>
-<% end %>
+<div class="container small-underline"></div>
 
+<div class="container mt-3">
+    <h2 id="otter-stars-title" class="text-align">Our Star Otters</h2>
+    <div class="container d-flex justify-content-around">
+      <div class="card col-6 col-md-4 m-5" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Mirabelle</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="card col-6 col-md-4 m-5" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Mirabelle</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="card col-6 col-md-4 m-5" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Mirabelle</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+</div>
