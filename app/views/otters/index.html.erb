@@ -1,11 +1,13 @@
+<div class="container">
 <h1>Otters index</h1>
 
 
-<% @otters.each do |otter| %>
+<ul> <% @otters.each do |otter| %>
   <%= otter.name %>
   <% if otter.photo.attached? %>
     <%= cl_image_tag otter.photo.key, height: 300, width: 200, crop: :fit %>
   <% end %>
+</ul>
   <% if policy(otter).edit? %>
     <%= link_to "Update", edit_otter_path(otter) %>
   <% end %>
@@ -14,7 +16,7 @@
   <% end %>
 <% end %>
 
-
 <%if policy(Otter).create? %>
   <%= link_to "New otter", new_otter_path %>
 <% end %>
+</div>
