@@ -6,26 +6,26 @@
 <% @otters.each_slice(4) do |otters|%>
     <div class="container d-flex justify-content-around">
       <% otters.each do |otter| %>
-          <div class="card col-md-3 m-4 grow-animation">
-            <div class="card__image-container">
-              <% if otter.photo.attached? %><%= cl_image_tag otter.photo.key, crop:'crop', class:"card__image" %>
-              <% end %>
-            </div>
-            <div class="card__content">
-              <h2 class="card__title"><%= otter.name %></h2>
+        <div class="card col-md-3 m-4 grow-animation">
+          <div class="card__image-container">
+            <% if otter.photo.attached? %><%= cl_image_tag otter.photo.key, crop:'crop', class:"card__image" %>
+            <% end %>
+          </div>
+          <div class="card__content">
+            <h2 class="card__title"><%= otter.name %></h2>
             <p><%= otter.personality %></p>
             <%= link_to "See More", otter_path(otter), class:"btn btn-primary" %>
             </br>
             <% if policy(otter).edit? %>
-            <hr>
-            <%= link_to "", edit_otter_path(otter), class:"fas fa-edit" %>
-          <% end %>
-          <% if policy(otter).destroy? %>
-            <%= link_to "", otter_path(otter), method: :delete, class:"fas fa-trash-alt" %>
-          <% end %>
-            </div>
+              <hr>
+              <%= link_to "", edit_otter_path(otter), class:"fas fa-edit" %>
+            <% end %>
+            <% if policy(otter).destroy? %>
+              <%= link_to "", otter_path(otter), method: :delete, class:"fas fa-trash-alt" %>
+            <% end %>
           </div>
-        <% end %>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>
