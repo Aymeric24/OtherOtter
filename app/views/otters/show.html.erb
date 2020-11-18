@@ -1,0 +1,18 @@
+<div class='container'>
+  <h1><%= @otter.name.capitalize %></h1>
+  <p>Age: <%= @otter.age %> Years old </p>
+  <p>Personality: <%= @otter.personality.capitalize  %></p>
+    <div clas='container'>
+      <% if @otter.photo.attached? %>
+        <%= cl_image_tag @otter.photo.key, height: 300, width: 200, crop: :fit %>
+      <% end %>
+    </div>
+    <hr>
+    <div>
+      <%= link_to 'Add a new Otter', new_otter_path(@cocktail), :class => "btn btn-primary" %>
+    </div>
+    <hr>
+    <div class="btn btn-primary">
+    <%= link_to 'Back to Main Page', root_path, :class => "btn btn-primary" %>
+    </div>
+</div>

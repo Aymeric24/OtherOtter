@@ -6,6 +6,7 @@ class OttersController < ApplicationController
 
   def show
     @otter = Otter.find(params[:id])
+    authorize @otter
   end
 
   def new
@@ -16,6 +17,7 @@ class OttersController < ApplicationController
   def create
     @otter = Otter.new(otter_params)
     authorize @otter
+    @otter.user = current_user
     if @otter.save
       redirect_to otter_path(@otter)
     else
@@ -45,6 +47,6 @@ class OttersController < ApplicationController
   private
 
   def otter_params
-    params.require(:otter).permit(:name, :age, :rating, :personality)
+    params.require(:otter).permit(:name, :age, :rating, :personality, :photo)
   end
 end

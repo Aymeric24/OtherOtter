@@ -13,6 +13,10 @@ class OtterPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def show?
+    true
+  end
+
   class Scope < Scope
     def resolve
       scope.all
