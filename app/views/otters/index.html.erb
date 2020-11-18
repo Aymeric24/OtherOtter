@@ -3,6 +3,9 @@
 
 <% @otters.each do |otter| %>
   <%= otter.name %>
+  <% if otter.photo.attached? %>
+    <%= cl_image_tag otter.photo.key, height: 300, width: 200, crop: :fit %>
+  <% end %>
   <% if policy(otter).edit? %>
     <%= link_to "Update", edit_otter_path(otter) %>
   <% end %>
