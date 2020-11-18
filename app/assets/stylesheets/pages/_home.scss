@@ -13,14 +13,24 @@
   left:10%;
 }
 .main-header {
-  height:60vh;
+  height:50vh;
 }
 
-.small-underline{
-  border-bottom: 1px solid grey;
+#otter-stars {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: bold;
 }
+// .small-underline{
+//   border-bottom: 1px solid grey;
+//   margin-bottom: 10px;
+// }
 
 // Really Small Devices
+#welcome-title{
+  font-weight: bold;
+}
 
 @media (max-width: 575.98px) {
   #welcome-title{
@@ -136,15 +146,14 @@
   .arrow-next-otter{
     display: none;
   }
+  #arrow-next-star{
+    display: none;
+  }
 }
 
   #welcome-title{
   text-shadow: 1px 1px 2px grey;
   }
-
-#otter-stars{
-  margin-top: 10px;
-}
 
 .arrow-next-otter{
   display:inline-block;
@@ -157,9 +166,6 @@
   vertical-align: bottom;
 }
 
-#otter-stars-card{
-  margin: 0 auto;
-}
 .fa-arrow-alt-circle-down{
   color: #cd7272;
 }
