@@ -1,18 +1,35 @@
-<h1>Otters index</h1>
+<div class="container text-center">
+<h1 class="main-title" id="otters-index-title">Our Otters</h1>
+<hr>
+</div>
+<div class="container">
+<% @otters.each_slice(4) do |otters|%>
+    <div class="container d-flex justify-content-around">
+      <% otters.each do |otter| %>
+          <div class="card col-md-3 m-4 grow-animation">
+            <div class="card__image-container">
+              <% if otter.photo.attached? %><%= cl_image_tag otter.photo.key, crop: :fit, class:"card__image" %>
+              <% end %>
+            </div>
+            <div class="card__content">
+              <h2 class="card__title"><%= otter.name %></h2>
+            <p><%= otter.personality %></p>
+            <%= link_to "See More", :class => "btn btn-primary" %>
+            </br>
+            <hr>
+            <% if policy(otter).edit? %>
+            <%= link_to "", edit_otter_path(otter), class:"fas fa-edit" %>
+          <% end %>
+          <% if policy(otter).destroy? %>
+            <%= link_to "", otter_path(otter), method: :delete, class:"fas fa-trash-alt" %>
+          <% end %>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  <% end %>
+</div>
 
-
-<% @otters.each do |otter| %>
-  <%= otter.name %>
-  <% if otter.photo.attached? %>
-    <%= cl_image_tag otter.photo.key, height: 300, width: 200, crop: :fit %>
-  <% end %>
-  <% if policy(otter).edit? %>
-    <%= link_to "Update", edit_otter_path(otter) %>
-  <% end %>
-  <%if policy(otter).destroy? %>
-    <%= link_to "Delete", otter_path(otter), method: :delete %>
-  <% end %>
-<% end %>
 
 
 <%if policy(Otter).create? %>
