@@ -6,7 +6,7 @@ User.all.destroy_all
 
 p "everything destroyed"
 
-user_1 = User.create(email: 'basilerieu@yahoo.fr', password: "password", address: '32 avenue de la maison', rating: 2, username: "Basile", admin: false)
+user_1 = User.create(email: 'basilerieu@yahoo.fr', password: "password", address: '32 avenue de la maison', rating: 2, is_owner?: true, username: "Basile", admin: true)
 
 user_2 = User.create(email: 'noemi@lewagon.com', password: "password", address: '3 rue de la maison', rating: 2, username: "Noémie", admin: false)
 
