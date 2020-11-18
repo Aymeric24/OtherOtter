@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @otter = Otter.find(params[:otter_id])
+    authorize @otter
     @booking.otter = @otter
     @booking.user = current_user
     if @booking.save

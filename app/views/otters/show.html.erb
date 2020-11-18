@@ -1,18 +1,24 @@
-<div class='container' style="min-height: calc(100vh - 158px)">
-  <h1><%= @otter.name.capitalize %></h1>
-  <p>Age: <%= @otter.age %> Years old </p>
-  <p>Personality: <%= @otter.personality.capitalize  %></p>
-    <div clas='container'>
+<div class="container d-flex justify-content-around" style="min-height: calc(100vh - 158px)">
+  <div class="container-fluid">
+    <div class="">
       <% if @otter.photo.attached? %>
-        <%= cl_image_tag @otter.photo.key, height: 300, width: 200, crop: :fit %>
+        <%= cl_image_tag @otter.photo.key, width: 600, crop: :fit, :class => "rounded" %>
       <% end %>
     </div>
-    <hr>
-    <div>
-      <%= link_to 'Add a new Otter', new_otter_path(@cocktail), :class => "btn btn-primary" %>
+    <div class="">
+      <h1><%= @otter.name.capitalize %></h1>
+      <hr>
+      <p>Age: <%= @otter.age %> Years old </p>
+      <p>Personality: <%= @otter.personality.capitalize %></p>
+      </br>
+      <%= link_to 'Book It Now', new_otter_booking_path(@otter), class: "btn btn-primary" %>
+      <% if policy(@otter).edit? %>
+        <hr>
+        <%= link_to "", edit_otter_path(@otter), class: "fas fa-edit" %>
+      <% end %>
+      <% if policy(@otter).destroy? %>
+        <%= link_to "", otter_path(@otter), method: :delete, class: "fas fa-trash-alt" %>
+      <% end %>
     </div>
-    <hr>
-    <div class="btn btn-primary">
-    <%= link_to 'Back to Main Page', root_path, :class => "btn btn-primary" %>
-    </div>
+  </div>
 </div>
