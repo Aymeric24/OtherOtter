@@ -8,16 +8,16 @@
       <% otters.each do |otter| %>
           <div class="card col-md-3 m-4 grow-animation">
             <div class="card__image-container">
-              <% if otter.photo.attached? %><%= cl_image_tag otter.photo.key, crop: :fit, class:"card__image" %>
+              <% if otter.photo.attached? %><%= cl_image_tag otter.photo.key, crop:'crop', class:"card__image" %>
               <% end %>
             </div>
             <div class="card__content">
               <h2 class="card__title"><%= otter.name %></h2>
             <p><%= otter.personality %></p>
-            <%= link_to "See More", :class => "btn btn-primary" %>
+            <%= link_to "See More", otter_path(otter), class:"btn btn-primary" %>
             </br>
-            <hr>
             <% if policy(otter).edit? %>
+            <hr>
             <%= link_to "", edit_otter_path(otter), class:"fas fa-edit" %>
           <% end %>
           <% if policy(otter).destroy? %>

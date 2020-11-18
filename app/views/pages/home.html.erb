@@ -23,43 +23,22 @@
     <h2 id="otter-stars" class="text-align">Our Star Otters</h2>
 </div>
 <div class="container">
-    <div class="container-fluid d-flex justify-content-around">
-
-        <div class="card col-sm-4 m-2 grow-animation" style="min-width:26em;">
-          <div class="card__image-container">
-            <img class="card__image" src="https://cache.cosmopolitan.fr/data/photo/w1000_ci/4z/bebe-loutre.jpg" alt="">
+<% @otters.each_slice(4) do |otters|%>
+    <div class="container d-flex justify-content-around">
+      <% otters.each do |otter| %>
+          <div class="card col-md-3 m-4 grow-animation">
+            <div class="card__image-container">
+              <% if otter.photo.attached? %><%= cl_image_tag otter.photo.key, crop: :fill, class:"card__image" %>
+              <% end %>
+            </div>
+            <div class="card__content">
+              <h2 class="card__title"><%= otter.name %></h2>
+            <p><%= otter.personality %></p>
+            <%= link_to "See More", otter_path(otter), class:"btn btn-primary" %>
+            </br>
+            </div>
           </div>
-
-
-          <div class="card__content">
-            <h1 class="card__title">Mirabelle</h1>
-          <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <%= link_to "See More", :class => "btn btn-primary" %>
-          </div>
-        </div>
-        <div class="card col-sm-4 m-2 grow-animation" style="min-width:26em;">
-          <div class="card__image-container">
-            <img class="card__image" src="https://lemagdesanimaux.ouest-france.fr/images/dossiers/2019-09/loutre-1-085135.jpg" alt="">
-          </div>
-
-
-          <div class="card__content">
-            <h1 class="card__title">Louma</h1>
-          <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <%= link_to "See More", :class => "btn btn-primary" %>
-          </div>
-        </div>
-        <div class="card col-sm-4 m-2 grow-animation" style="min-width:26em;">
-          <div class="card__image-container">
-            <img class="card__image" src="https://images.bfmtv.com/pnzXDkP5UyVAqhZ2wDWWRFFqkj8=/0x337:3600x2362/3600x0/images/-194649.jpg" alt="">
-          </div>
-
-
-          <div class="card__content">
-            <h1 class="card__title">Nutella</h1>
-          <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <%= link_to "See More", :class => "btn btn-primary" %>
-          </div>
-        </div>
+        <% end %>
     </div>
+  <% end %>
 </div>
