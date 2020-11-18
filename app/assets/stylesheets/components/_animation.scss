@@ -1,5 +1,3 @@
-_animation.scss
-
 .grow-animation {
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
@@ -14,7 +12,7 @@ _animation.scss
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
   text-decoration: none!important;
-  z-index: 999;
   box-shadow: 0 .25rem .25rem rgba(0,0,0,0.2),
-    0 0 1rem rgba(0,0,0,0.2);
+  0 0 1rem rgba(0,0,0,0.2);
+  z-index: 999;
 }
