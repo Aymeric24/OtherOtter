@@ -40,8 +40,9 @@
               <figcaption><%= otter.name %></figcaption>
             </figure>
 
-            <ul class="card-ul text-center">
-              <li class="card-li"><%= otter.personality %></li>
+            <ul class="card-ul text-center" style="padding-left:0px">
+              <li class="card-li">Best Quality: <strong><%= otter.personality %></strong></li>
+              <li class="card-li"><%= otter.age %> Years Old</li>
             </ul>
           </div>
 
@@ -68,7 +69,8 @@
 
         </div>
       </div>
-      <% end %>
-    </div>
+    <% end %>
+  </div>
 <% end %>
+</div>
 <!-- /flip-card-container -->
