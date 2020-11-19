@@ -13,7 +13,7 @@
             <div class="card-front">
               <figure>
                 <div class="img-bg"></div>
-                <% if otter.photo.attached? %><%= cl_image_tag otter.photo.key %>
+                <% if otter.photo.attached? %><%= cl_image_tag otter.photo.key, class:"card-img" %>
                 <% end %>
                 <figcaption><%= otter.name %></figcaption>
               </figure>
