@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to dashboard_path
     else
-      render :new
+      redirect_to otter_path(@otter), alert: "Try again"
     end
   end
 
