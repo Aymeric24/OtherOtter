@@ -7,6 +7,8 @@
       <h1 id="welcome-title">Welcome to Other Otter</h1>
       <p id="welcome-message">Come and find your S.O (Significant Otter).</p>
       </br>
+      </br>
+      </br>
       <%= link_to "See All Otters", otters_path, class:"button link-button type1" %>
     </div>
   </div>
@@ -14,7 +16,7 @@
 
 <div class="container" style="text-align: center;" id="underline-and-arrow">
   <div class="row small-underline"></div>
-  <div class="row arrow-next-otter" id="arrow-next-star">
+  <div class="row arrow-next-otter smooth-scroll" id="arrow-next-star">
     <a href="#otter-stars">
     <span class="far fa-arrow-alt-circle-down"></span>
     </a>
@@ -35,7 +37,7 @@
           <div class="card-front">
             <figure>
               <div class="img-bg"></div>
-              <% if otter.photo.attached? %><%= cl_image_tag otter.photo.key %>
+              <% if otter.photo.attached? %><%= cl_image_tag otter.photo.key, class:"card-img"  %>
               <% end %>
               <figcaption><%= otter.name %></figcaption>
             </figure>
