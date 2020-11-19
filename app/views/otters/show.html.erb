@@ -1,4 +1,4 @@
-<div class="container d-flex justify-content-around" style="min-height: calc(100vh - 158px)">
+<div class="container d-flex justify-content-around">
     <div class="card-trip">
       <% if @otter.photo.attached? %>
         <%= cl_image_tag @otter.photo.key, crop: :fit, :class => "rounded" %>
