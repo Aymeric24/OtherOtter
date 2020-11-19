@@ -12,9 +12,11 @@
   </head>
 
   <body class="smooth-scroll">
-    <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-    <%= yield %>
-    <%= render "shared/footer" %>
+    <%= render "shared/navbar" %>
+    <div class="content-wrapper">
+      <%= yield %>
+    </div>
+      <%= render "shared/footer" %>
   </body>
 </html>
