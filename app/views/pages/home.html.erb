@@ -25,23 +25,52 @@
     <h2 id="otter-stars" class="text-align">Our Star Otters</h2>
 </div>
 <div class="container">
-<% @otters.each_slice(4) do |otters|%>
-    <div class="container d-flex justify-content-around">
-      <% otters.each do |otter| %>
-          <div class="card col-md-3 m-4 grow-animation">
-            <div class="card__image-container">
-              <% if otter.photo.attached? %><%= cl_image_tag otter.photo.key, crop: :fill, class:"card__image" %>
+<!-- flip-card-container -->
+<% @otters.each_slice(3) do |otters| %>
+  <div class="container d-flex justify-content-around">
+    <% otters.each do |otter| %>
+      <div class="flip-card-container col-md-3 m-4" style="--hue: 220">
+        <div class="flip-card">
+
+          <div class="card-front">
+            <figure>
+              <div class="img-bg"></div>
+              <% if otter.photo.attached? %><%= cl_image_tag otter.photo.key %>
               <% end %>
-            </div>
-            <div class="card__content">
-              <h2 class="card__title"><%= otter.name %></h2>
-            <p><%= otter.personality %></p>
-            </br>
-            <%= link_to "See More", otter_path(otter), class:"card__btn button type5 text-center" %>
-            </br>
+              <figcaption><%= otter.name %></figcaption>
+            </figure>
+
+            <ul class="card-ul text-center" style="padding-left:0px">
+              <li class="card-li">Best Quality: <strong><%= otter.personality %></strong></li>
+              <li class="card-li"><%= otter.age %> Years Old</li>
+            </ul>
+          </div>
+
+          <div class="card-back">
+            <figure>
+              <div class="img-bg"></div>
+              <% if otter.photo.attached? %><%= cl_image_tag otter.photo.key %>
+              <% end %>
+            </figure>
+
+            <%= link_to "See More", otter_path(otter), class:"button-card" %>
+
+            <div class="design-container">
+              <span class="design design--1"></span>
+              <span class="design design--2"></span>
+              <span class="design design--3"></span>
+              <span class="design design--4"></span>
+              <span class="design design--5"></span>
+              <span class="design design--6"></span>
+              <span class="design design--7"></span>
+              <span class="design design--8"></span>
             </div>
           </div>
-        <% end %>
-    </div>
-  <% end %>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 </div>
+<!-- /flip-card-container -->
