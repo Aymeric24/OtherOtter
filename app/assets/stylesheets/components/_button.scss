@@ -91,7 +91,7 @@
 }
 
 .button.type3 {
-  color: #435a6b;
+  color: #068a81;
 }
 
 .button.type3.type3::after,
@@ -111,8 +111,8 @@
   right: 0;
   border-top-color: transparent;
   border-left-color: transparent;
-  border-bottom-color: #435a6b;
-  border-right-color: #435a6b;
+  border-bottom-color: #068a81;
+  border-right-color: #068a81;
 }
 
 .button.type3.type3::before {
@@ -120,16 +120,16 @@
   left: 0;
   border-bottom-color: transparent;
   border-right-color: transparent;
-  border-top-color: #435a6b;
-  border-left-color: #435a6b;
+  border-top-color: #068a81;
+  border-left-color: #068a81;
 }
 
 .button.type3.type3:hover:after,
 .button.type3.type3:hover:before {
-  border-bottom-color: #435a6b;
-  border-right-color: #435a6b;
-  border-top-color: #435a6b;
-  border-left-color: #435a6b;
+  border-bottom-color: #068a81;
+  border-right-color: #068a81;
+  border-top-color: #068a81;
+  border-left-color: #068a81;
   width: 100%;
   height: 100%;
 }
