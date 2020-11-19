@@ -4,25 +4,58 @@
 
  <h2>Here is your bookings as Renter</h2>
   <% @bookings_as_renter.each do |booking| %>
-    <ul>You have placed a Booking on:
-      <li>The Otter: <%= booking.otter.name %></li>
-      <li>From: <%= booking.beginning_date %> To <%= booking.ending_date %></li>
-      <li>Status: <%= booking.status %></li>
-    </ul>
+    <div class="container">
+  <div class="courses-container" s>
+    <div class="course">
+      <div class="course-preview card-img-dashboard" style="background-image:url('<%= cl_image_path booking.otter.photo.key %>'); max-width:12rem; min-width:12rem;">
+      </div>
+      <div class="course-info d-flex justify-content-between align-items-center">
+        <div class="center">
+          <h6>You have placed a Booking on:
+          <h2><h2><%= booking.otter.name %></h2></strong></h2>
+          </h6>
+        </div>
+        <% if booking.status == 'Accepted'%>
+          <h6 style="color:rgb(25, 194, 25)">You request is <%= booking.status %>.</h6>
+          <% elsif booking.status =='Refused'%>
+          <h6 style="color:rgb(199, 47, 47)">You request is <%= booking.status %>.</h6>
+          <% else %>
+          <h6>You request is <%= booking.status %>.</h6>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
   <% end %>
 
   <h2>Here is your bookings as Owner</h2>
-  <% @bookings_as_owner.each do |booking| %>
-    <ul>You have a booking request:
-      <li>From the user: <%= booking.user.username.capitalize %></li>
-      <li>From <%= booking.beginning_date %> To <%= booking.ending_date %></li>
-      <li>For your Otter <%= booking.otter.name %></li>
-      <% if booking.status == 'Pending' %>
-        <%= link_to 'Accept', dashboard_path(booking_id: booking.id), method: :patch %>
-        <%= link_to 'Refuse', dashboard_path(booking_id: booking.id), method: :put %>
-      <% else %>
-       <li>Status: <%= booking.status %></li>
-      <% end %>
-    </ul>
-  <% end %>
+<% @bookings_as_owner.each do |booking| %>
+<div class="container">
+  <div class="courses-container" s>
+    <div class="course">
+      <div class="course-preview card-img-dashboard" style="background-image:url('<%= cl_image_path booking.otter.photo.key%>'); max-width:12rem; min-width:12rem;">
+        <h6>For: </h6>
+        <h2><%= booking.otter.name %></h2>
+      </div>
+      <div class="course-info d-flex justify-content-between align-items-center">
+        <div>
+        <h2><em>From:</em> <strong><%= booking.user.username.capitalize %></strong></h2>
+        <h6><%= booking.beginning_date %> <-> <%= booking.ending_date %> </h6>
+        </div>
+        <div class="center">
+        <% if booking.status == "Pending" %>
+          <%= link_to "", dashboard_path(booking_id: booking.id), method: :patch, class:'accept grow-animation-btn-accept-decline far fa-check-circle' %>
+          <%= link_to "", dashboard_path(booking_id: booking.id), method: :put, class:'decline grow-animation-btn-accept-decline far fa-times-circle' %>
+        <% else %>
+          <% if booking.status == "Accepted" %>
+              <h6 style="color:rgb(25, 194, 25)">You have <%= booking.status %> the request.</h6>
+            <% elsif booking.status == "Refused" %>
+              <h6 style="color:rgb(199, 47, 47)">You have <%= booking.status %> the request.</h6>
+            <% end %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<% end %>
