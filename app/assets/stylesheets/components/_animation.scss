@@ -16,3 +16,19 @@
   0 0 1rem rgba(0,0,0,0.2);
   z-index: 999;
 }
+
+.grow-animation-btn-accept-decline {
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+
+.grow-animation-btn-accept-decline:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  text-decoration: none !important;
+  z-index: 999;
+}
