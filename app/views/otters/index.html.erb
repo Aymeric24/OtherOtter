@@ -39,16 +39,14 @@
                 <% end %>
               </figure>
               <div>
-              <div class="d-flex justify-content-center mt-5">
-              </br>
-              </br>
-                <% if policy(otter).edit? %>
-                  <%= link_to "", edit_otter_path(otter), class: "fas fa-edit mr-2 cards-icon" %>
+                <% if policy(otter).destroy? && policy(otter).edit? %>
+                  <div class="d-flex justify-content-center">
+                  </br>
+                  </br>
+                    <%= link_to "", edit_otter_path(otter), class: "fas fa-edit mr-2 cards-icon" %>
+                    <%= link_to "", otter_path(otter), method: :delete, class: "fas fa-trash-alt ml-2 cards-icon" %>
+                  </div>
                 <% end %>
-                <% if policy(otter).destroy? %>
-                  <%= link_to "", otter_path(otter), method: :delete, class: "fas fa-trash-alt ml-2 cards-icon" %>
-                <% end %>
-              </div>
                 <%= link_to "See More", otter_path(otter), class: "button-card" %>
               </div>
 
