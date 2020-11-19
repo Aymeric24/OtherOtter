@@ -8,10 +8,10 @@
         <p>Age: <%= @otter.age %> Years old </p>
         <p>Personality: <%= @otter.personality.capitalize %></p>
         <% if policy(@otter).edit? %>
-          <%= link_to "", edit_otter_path(@otter), class: "fas fa-edit" %>
+          <%= link_to "", edit_otter_path(@otter), class: "fas fa-edit edit-icon grow-animation-btn-accept-decline" %>
         <% end %>
         <% if policy(@otter).destroy? %>
-          <%= link_to "", otter_path(@otter), method: :delete, class: "fas fa-trash-alt" %>
+          <%= link_to "", otter_path(@otter), method: :delete, class: "fas fa-trash-alt trash-icon grow-animation-btn-accept-decline" %>
         <% end %>
       </div>
     </div>
@@ -23,9 +23,7 @@
             <%= simple_form_for [@otter, @booking] do |f| %>
               <%= f.input :beginning_date, label: "Select your dates:", as: :string, required: false, input_html: { id: "range_start", class: "d-none" } %>
               <%= f.input :ending_date, label: false, as: :string, required: false, input_html: { id: "range_end", class: "d-none" } %>
-              <div class="button link-button type3" style="font-size:30px!important;">
-              <%= f.submit "Book now", class:'button link-button type 3'%>
-              </div>
+                <%= f.button :submit, "Book now", class:"btn btn-primary"%>
             <% end %>
         </div>
       </div>
