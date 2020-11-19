@@ -6,7 +6,8 @@
     <div class="container col-7 main-text-home justify-content-center text-center">
       <h1 id="welcome-title">Welcome to Other Otter</h1>
       <p id="welcome-message">Come and find your S.O (Significant Otter).</p>
-      <%= link_to "See all the otters", otters_path, class:"btn btn-primary" %>
+      </br>
+      <%= link_to "See All Otters", otters_path, class:"button link-button type1" %>
     </div>
   </div>
 </div>
@@ -35,7 +36,8 @@
             <div class="card__content">
               <h2 class="card__title"><%= otter.name %></h2>
             <p><%= otter.personality %></p>
-            <%= link_to "See More", otter_path(otter), class:"card__btn btn btn-primary" %>
+            </br>
+            <%= link_to "See More", otter_path(otter), class:"card__btn button type5 text-center" %>
             </br>
             </div>
           </div>
