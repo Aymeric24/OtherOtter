@@ -3,35 +3,63 @@
 <hr>
 </div>
 <div class="container">
-<% @otters.each_slice(4) do |otters|%>
+<!-- flip-card-container -->
+  <% @otters.each_slice(4) do |otters| %>
     <div class="container d-flex justify-content-around">
       <% otters.each do |otter| %>
-        <div class="card col-md-3 m-4 grow-animation">
-          <div class="card__image-container">
-            <% if otter.photo.attached? %><%= cl_image_tag otter.photo.key, crop:'crop', class:"card__image" %>
-            <% end %>
-          </div>
-          <div class="card__content">
-            <h2 class="card__title"><%= otter.name %></h2>
-            <p><%= otter.personality %></p>
-            <%= link_to "See More", otter_path(otter), class:"btn btn-primary" %>
-            </br>
-            <% if policy(otter).edit? %>
-              <hr>
-              <%= link_to "", edit_otter_path(otter), class:"fas fa-edit" %>
-            <% end %>
-            <% if policy(otter).destroy? %>
-              <%= link_to "", otter_path(otter), method: :delete, class:"fas fa-trash-alt" %>
-            <% end %>
+        <div class="flip-card-container col-md-3 m-4" style="--hue: 220">
+          <div class="flip-card">
+
+            <div class="card-front">
+              <figure>
+                <div class="img-bg"></div>
+                <% if otter.photo.attached? %><h2><%= cl_image_tag otter.photo.key %></h2>
+                <% end %>
+                <figcaption><%= otter.name %></figcaption>
+              </figure>
+
+              <ul class="card-ul text-center" style="padding-left:0px">
+                <li class="card-li">Best Quality: <strong><%= otter.personality %></strong></li>
+                <li class="card-li"><%= otter.age %> Years Old</li>
+              </ul>
+            </div>
+
+            <div class="card-back">
+              <figure>
+                <div class="img-bg"></div>
+                <% if otter.photo.attached? %><%= cl_image_tag otter.photo.key %>
+                <% end %>
+              </figure>
+              <div>
+              <div class="d-flex justify-content-center mt-5">
+              </br>
+              </br>
+                <% if policy(otter).edit? %>
+                  <%= link_to "", edit_otter_path(otter), class: "fas fa-edit mr-2 cards-icon" %>
+                <% end %>
+                <% if policy(otter).destroy? %>
+                  <%= link_to "", otter_path(otter), method: :delete, class: "fas fa-trash-alt ml-2 cards-icon" %>
+                <% end %>
+              </div>
+                <%= link_to "See More", otter_path(otter), class: "button-card" %>
+              </div>
+
+              <div class="design-container">
+                <span class="design design--1"></span>
+                <span class="design design--2"></span>
+                <span class="design design--3"></span>
+                <span class="design design--4"></span>
+                <span class="design design--5"></span>
+                <span class="design design--6"></span>
+                <span class="design design--7"></span>
+                <span class="design design--8"></span>
+              </div>
+            </div>
+
           </div>
         </div>
       <% end %>
     </div>
   <% end %>
 </div>
-
-
-<%if policy(Otter).create? %>
-  <%= link_to "New otter", new_otter_path %>
-<% end %>
-</div>
+<!-- /flip-card-container -->
