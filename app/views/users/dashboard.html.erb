@@ -1,5 +1,28 @@
-<div class="container" style="min-height: calc(100vh - 158px)">
+<div class="container">
 
-  <p>Your booking is sent.<p>
-  <p>You can wait for a reply</p>
+ <h1>Hi there</h1>
+
+ <h2>Here is your bookings as Renter</h2>
+  <% @bookings_as_renter.each do |booking| %>
+    <ul>You have placed a Booking on:
+      <li>The Otter: <%= booking.otter.name %></li>
+      <li>From: <%= booking.beginning_date %> To <%= booking.ending_date %></li>
+      <li>Status: <%= booking.status %></li>
+    </ul>
+  <% end %>
+
+  <h2>Here is your bookings as Owner</h2>
+  <% @bookings_as_owner.each do |booking| %>
+    <ul>You have a booking request:
+      <li>From the user: <%= booking.user.username.capitalize %></li>
+      <li>From <%= booking.beginning_date %> To <%= booking.ending_date %></li>
+      <li>For your Otter <%= booking.otter.name %></li>
+      <% if booking.status == 'Pending' %>
+        <%= link_to 'Accept', dashboard_path(booking_id: booking.id), method: :patch %>
+        <%= link_to 'Refuse', dashboard_path(booking_id: booking.id), method: :put %>
+      <% else %>
+       <li>Status: <%= booking.status %></li>
+      <% end %>
+    </ul>
+  <% end %>
 </div>
