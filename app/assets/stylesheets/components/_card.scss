@@ -14,8 +14,8 @@
   --dark: hsl(var(--hue), 25%, 10%);
   --grey: hsl(0, 0%, 50%);
 
-  width: 310px;
-  height: 500px;
+  width: 290px;
+  height: 400px;
   margin: 40px;
 
   perspective: 1000px;
@@ -94,6 +94,8 @@ figure,
 img {
   height: 100%;
   border-radius: 24px;
+  width: 100%;
+  object-fit: cover;
 }
 
 /* figcaption */
@@ -133,7 +135,7 @@ figcaption {
   position: absolute;
   top: 34%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(18deg);
+  transform: translate(-50%, -50%) rotate(16deg);
 
   width: 130%;
   height: 6px;
