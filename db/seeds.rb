@@ -6,11 +6,11 @@ User.all.destroy_all
 
 p "everything destroyed"
 
-user_1 = User.create(email: 'basilerieu@yahoo.fr', password: "password", address: '32 avenue de la maison', rating: 2, is_owner?: true, username: "Basile", admin: true)
+user_1 = User.create(email: 'basilerieu@yahoo.fr', password: "password", address: '22, rue andré del sarte, 75018 Paris', rating: 2, is_owner?: true, username: "Basile", admin: true)
 
-user_2 = User.create(email: 'noemi@lewagon.com', password: "password", address: '3 rue de la maison', rating: 2, username: "Noémie", admin: false)
+user_2 = User.create(email: 'noemi@lewagon.com', password: "password", address: '118 avenue Parmentier, 75011 Paris', rating: 2, username: "Noémie", admin: false)
 
-user_3 = User.create(email: 'jp@lewagon.com', password: "password", address: '10 rue du machin', rating: 5, username: "JP", admin: false)
+user_3 = User.create(email: 'jp@lewagon.com', password: "password", address: '10, rue Sainte, 13001 Marseille', rating: 5, username: "JP", admin: false)
 p user_3
 
 
