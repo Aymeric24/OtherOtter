@@ -7,7 +7,14 @@ class OttersController < ApplicationController
 
   def show
     @otter = Otter.find(params[:id])
+    @booking = Booking.new
     authorize @otter
+    @bookings = Booking.where(otter_id: @otter.id)
+    @bookings_dates = @bookings.map do |booking| {
+      from: booking.beginning_date,
+      to: booking.ending_date
+    }
+    end
   end
 
   def new
