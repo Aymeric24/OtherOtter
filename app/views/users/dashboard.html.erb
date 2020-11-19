@@ -1,61 +1,180 @@
-<div class="container">
-
- <h1>Hi there</h1>
-
- <h2>Here is your bookings as Renter</h2>
-  <% @bookings_as_renter.each do |booking| %>
-    <div class="container">
-  <div class="courses-container" s>
-    <div class="course">
-      <div class="course-preview card-img-dashboard" style="background-image:url('<%= cl_image_path booking.otter.photo.key %>'); max-width:12rem; min-width:12rem;">
-      </div>
-      <div class="course-info d-flex justify-content-between align-items-center">
-        <div class="center">
-          <h6>You have placed a Booking on:
-          <h2><h2><%= booking.otter.name %></h2></strong></h2>
-          </h6>
+<div class = "tabinator text-center">
+ <h1>Hi there, Welcome to your Dashboard</h1>
+  <input type = "radio" id = "tab1" name = "tabs" checked>
+  <label for = "tab1">Your History</label>
+  <input type = "radio" id = "tab2" name = "tabs">
+  <label for = "tab2">Here is your bookings as Renter</label>
+  <input type = "radio" id = "tab3" name = "tabs">
+  <label for = "tab3">Here is your bookings as Owner</label>
+  <div id= "content1">
+    <% @bookings_as_owner.each do |booking| %>
+      <div class="container">
+        <div class="courses-container" s>
+          <div class="course">
+            <div class="course-preview card-img-dashboard" style="background-image:url('<%= cl_image_path booking.otter.photo.key %>'); max-width:12rem; min-width:12rem;">
+              <h6>For: </h6>
+              <h2><%= booking.otter.name %></h2>
+            </div>
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <div>
+              <h2><em>From:</em> <strong><%= booking.user.username.capitalize %></strong></h2>
+              <h6><%= booking.beginning_date %> <-> <%= booking.ending_date %> </h6>
+              </div>
+              <div class="center">
+              <% if booking.status == "Pending" %>
+                <%= link_to "", dashboard_path(booking_id: booking.id), method: :patch, class: "accept grow-animation-btn-accept-decline far fa-check-circle" %>
+                <%= link_to "", dashboard_path(booking_id: booking.id), method: :put, class: "decline grow-animation-btn-accept-decline far fa-times-circle" %>
+              <% else %>
+                <% if booking.status == "Accepted" %>
+                    <h6 style="color:rgb(25, 194, 25)">You have <%= booking.status %> the request.</h6>
+                  <% elsif booking.status == "Refused" %>
+                    <h6 style="color:rgb(199, 47, 47)">You have <%= booking.status %> the request.</h6>
+                  <% end %>
+              <% end %>
+              </div>
+            </div>
+          </div>
         </div>
-        <% if booking.status == 'Accepted'%>
-          <h6 style="color:rgb(25, 194, 25)">You request is <%= booking.status %>.</h6>
-          <% elsif booking.status =='Refused'%>
-          <h6 style="color:rgb(199, 47, 47)">You request is <%= booking.status %>.</h6>
-          <% else %>
-          <h6>You request is <%= booking.status %>.</h6>
-        <% end %>
       </div>
-    </div>
+    <% end %>
+    <% @bookings_as_renter.each do |booking| %>
+      <div class="container">
+        <div class="courses-container" s>
+          <div class="course">
+            <div class="course-preview card-img-dashboard" style="background-image:url('<%= cl_image_path booking.otter.photo.key %>'); max-width:12rem; min-width:12rem;">
+            </div>
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <div class="center">
+                <h6>You have placed a Booking on:
+                <h2><h2><%= booking.otter.name %></h2></strong></h2>
+                </h6>
+              </div>
+              <% if booking.status == "Accepted" %>
+                <h6 style="color:rgb(25, 194, 25)">You request is <%= booking.status %>.</h6>
+                <% elsif booking.status == "Refused" %>
+                <h6 style="color:rgb(199, 47, 47)">You request is <%= booking.status %>.</h6>
+                <% else %>
+                <h6>You request is <%= booking.status %>.</h6>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div id = "content2">
+    <% @bookings_as_renter.each do |booking| %>
+      <div class="container">
+        <div class="courses-container" s>
+          <div class="course">
+            <div class="course-preview card-img-dashboard" style="background-image:url('<%= cl_image_path booking.otter.photo.key %>'); max-width:12rem; min-width:12rem;">
+            </div>
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <div class="center">
+                <h6>You have placed a Booking on:
+                <h2><h2><%= booking.otter.name %></h2></strong></h2>
+                </h6>
+              </div>
+              <% if booking.status == "Accepted" %>
+                <h6 style="color:rgb(25, 194, 25)">You request is <%= booking.status %>.</h6>
+                <% elsif booking.status == "Refused" %>
+                <h6 style="color:rgb(199, 47, 47)">You request is <%= booking.status %>.</h6>
+                <% else %>
+                <h6>You request is <%= booking.status %>.</h6>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div id = "content3">
+    <% @bookings_as_owner.each do |booking| %>
+      <% if booking.status == "Pending" %>
+        <div class="container">
+          <div class="courses-container" s>
+            <div class="course">
+              <div class="course-preview card-img-dashboard" style="background-image:url('<%= cl_image_path booking.otter.photo.key %>'); max-width:12rem; min-width:12rem;">
+                <h6>For: </h6>
+                <h2><%= booking.otter.name %></h2>
+              </div>
+              <div class="course-info d-flex justify-content-between align-items-center">
+                <div>
+                <h2><em>From:</em> <strong><%= booking.user.username.capitalize %></strong></h2>
+                <h6><%= booking.beginning_date %> <-> <%= booking.ending_date %> </h6>
+                </div>
+                <div class="center">
+                <% if booking.status == "Pending" %>
+                  <%= link_to "", dashboard_path(booking_id: booking.id), method: :patch, class: "accept grow-animation-btn-accept-decline far fa-check-circle" %>
+                  <%= link_to "", dashboard_path(booking_id: booking.id), method: :put, class: "decline grow-animation-btn-accept-decline far fa-times-circle" %>
+                <% else %>
+                  <% if booking.status == "Accepted" %>
+                      <h6 style="color:rgb(25, 194, 25)">You have <%= booking.status %> the request.</h6>
+                    <% elsif booking.status == "Refused" %>
+                      <h6 style="color:rgb(199, 47, 47)">You have <%= booking.status %> the request.</h6>
+                    <% end %>
+                <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <% @bookings_as_owner.each do |booking| %>
+      <div class="container">
+        <div class="courses-container" s>
+          <div class="course">
+            <div class="course-preview card-img-dashboard" style="background-image:url('<%= cl_image_path booking.otter.photo.key %>'); max-width:12rem; min-width:12rem;">
+              <h6>For: </h6>
+              <h2><%= booking.otter.name %></h2>
+            </div>
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <div>
+              <h2><em>From:</em> <strong><%= booking.user.username.capitalize %></strong></h2>
+              <h6><%= booking.beginning_date %> <-> <%= booking.ending_date %> </h6>
+              </div>
+              <div class="center">
+              <% if booking.status == "Pending" %>
+                <%= link_to "", dashboard_path(booking_id: booking.id), method: :patch, class: "accept grow-animation-btn-accept-decline far fa-check-circle" %>
+                <%= link_to "", dashboard_path(booking_id: booking.id), method: :put, class: "decline grow-animation-btn-accept-decline far fa-times-circle" %>
+              <% else %>
+                <% if booking.status == "Accepted" %>
+                    <h6 style="color:rgb(25, 194, 25)">You have <%= booking.status %> the request.</h6>
+                  <% elsif booking.status == "Refused" %>
+                    <h6 style="color:rgb(199, 47, 47)">You have <%= booking.status %> the request.</h6>
+                  <% end %>
+              <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% @bookings_as_renter.each do |booking| %>
+      <div class="container">
+        <div class="courses-container" s>
+          <div class="course">
+            <div class="course-preview card-img-dashboard" style="background-image:url('<%= cl_image_path booking.otter.photo.key %>'); max-width:12rem; min-width:12rem;">
+            </div>
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <div class="center">
+                <h6>You have placed a Booking on:
+                <h2><h2><%= booking.otter.name %></h2></strong></h2>
+                </h6>
+              </div>
+              <% if booking.status == "Accepted" %>
+                <h6 style="color:rgb(25, 194, 25)">You request is <%= booking.status %>.</h6>
+                <% elsif booking.status == "Refused" %>
+                <h6 style="color:rgb(199, 47, 47)">You request is <%= booking.status %>.</h6>
+                <% else %>
+                <h6>You request is <%= booking.status %>.</h6>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
-  <% end %>
-
-  <h2>Here is your bookings as Owner</h2>
-<% @bookings_as_owner.each do |booking| %>
-<div class="container">
-  <div class="courses-container" s>
-    <div class="course">
-      <div class="course-preview card-img-dashboard" style="background-image:url('<%= cl_image_path booking.otter.photo.key%>'); max-width:12rem; min-width:12rem;">
-        <h6>For: </h6>
-        <h2><%= booking.otter.name %></h2>
-      </div>
-      <div class="course-info d-flex justify-content-between align-items-center">
-        <div>
-        <h2><em>From:</em> <strong><%= booking.user.username.capitalize %></strong></h2>
-        <h6><%= booking.beginning_date %> <-> <%= booking.ending_date %> </h6>
-        </div>
-        <div class="center">
-        <% if booking.status == "Pending" %>
-          <%= link_to "", dashboard_path(booking_id: booking.id), method: :patch, class:'accept grow-animation-btn-accept-decline far fa-check-circle' %>
-          <%= link_to "", dashboard_path(booking_id: booking.id), method: :put, class:'decline grow-animation-btn-accept-decline far fa-times-circle' %>
-        <% else %>
-          <% if booking.status == "Accepted" %>
-              <h6 style="color:rgb(25, 194, 25)">You have <%= booking.status %> the request.</h6>
-            <% elsif booking.status == "Refused" %>
-              <h6 style="color:rgb(199, 47, 47)">You have <%= booking.status %> the request.</h6>
-            <% end %>
-        <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<% end %>
