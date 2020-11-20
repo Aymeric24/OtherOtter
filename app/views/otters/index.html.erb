@@ -1,63 +1,90 @@
 <div class="container text-center">
-<h1 class="main-title" id="otters-index-title">Our Otters</h1>
-<hr>
-</div>
-<div class="container">
-<!-- flip-card-container -->
-  <% @otters.each_slice(4) do |otters| %>
-    <div class="container d-flex justify-content-around">
-      <% otters.each do |otter| %>
-        <div class="flip-card-container col-md-3 m-4" style="--hue: 220">
-          <div class="flip-card">
+  <h1 class="main-title" id="otters-index-title">Our Otters</h1>
+  <hr>
+  <%= form_tag otters_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find an otter near you - enter a city"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
 
-            <div class="card-front">
-              <figure>
-                <div class="img-bg"></div>
-                <% if otter.photo.attached? %><%= cl_image_tag otter.photo.key, class:"card-img" %>
-                <% end %>
-                <figcaption><%= otter.name %></figcaption>
-              </figure>
+  <div class="" style="display: flex">
 
-              <ul class="card-ul text-center" style="padding-left:0px">
-                <li class="card-li">Best Quality: <strong><%= otter.personality %></strong></li>
-                <li class="card-li"><%= otter.age %> Years Old</li>
-              </ul>
-            </div>
+    <div class="">
+    <!-- flip-card-container -->
+      <% @otters.each_slice(2) do |otters| %>
+        <div class="d-flex justify-content-around" style="width: 600px">
 
-            <div class="card-back">
-              <figure>
-                <div class="img-bg"></div>
-                <% if otter.photo.attached? %><%= cl_image_tag otter.photo.key %>
-                <% end %>
-              </figure>
-              <div>
-                <% if policy(otter).destroy? && policy(otter).edit? %>
-                  <div class="d-flex justify-content-center">
-                  </br>
-                  </br>
-                    <%= link_to "", edit_otter_path(otter), class: "fas fa-edit mr-2 cards-icon" %>
-                    <%= link_to "", otter_path(otter), method: :delete, class: "fas fa-trash-alt ml-2 cards-icon" %>
+          <% otters.each do |otter| %>
+            <div class="flip-card-container cards-otters-index" style="--hue: 220" data-otter-id="<%= otter.id %>">
+
+              <div class="flip-card">
+
+                <div class="card-front">
+                  <figure>
+                    <div class="img-bg"></div>
+                    <% if otter.photo.attached? %>
+                      <%= cl_image_tag otter.photo.key, class:"card-img" %>
+                    <% end %>
+                    <figcaption><%= otter.name %></figcaption>
+                  </figure>
+                  <ul class="card-ul text-center" style="padding-left:0px">
+                    <li class="card-li">Best Quality: <strong><%= otter.personality %></strong></li>
+                    <li class="card-li"><%= otter.age %> Years Old</li>
+                  </ul>
+                </div>
+
+                <div class="card-back">
+                  <figure>
+                    <div class="img-bg"></div>
+                    <% if otter.photo.attached? %>
+                      <%= cl_image_tag otter.photo.key %>
+                    <% end %>
+                  </figure>
+
+                  <div>
+                    <% if policy(otter).destroy? && policy(otter).edit? %>
+                      <div class="d-flex justify-content-center">
+                      </br>
+                      </br>
+                        <%= link_to "", edit_otter_path(otter), class: "fas fa-edit mr-2 cards-icon" %>
+                        <%= link_to "", otter_path(otter), method: :delete, class: "fas fa-trash-alt ml-2 cards-icon" %>
+                      </div>
+                    <% end %>
+                    <%= link_to "See More", otter_path(otter), class: "button-card" %>
                   </div>
-                <% end %>
-                <%= link_to "See More", otter_path(otter), class: "button-card" %>
+
+                  <div class="design-container">
+                    <span class="design design--1"></span>
+                    <span class="design design--2"></span>
+                    <span class="design design--3"></span>
+                    <span class="design design--4"></span>
+                    <span class="design design--5"></span>
+                    <span class="design design--6"></span>
+                    <span class="design design--7"></span>
+                    <span class="design design--8"></span>
+                  </div>
+
+                </div>
+
               </div>
 
-              <div class="design-container">
-                <span class="design design--1"></span>
-                <span class="design design--2"></span>
-                <span class="design design--3"></span>
-                <span class="design design--4"></span>
-                <span class="design design--5"></span>
-                <span class="design design--6"></span>
-                <span class="design design--7"></span>
-                <span class="design design--8"></span>
-              </div>
             </div>
+          <% end %>
 
-          </div>
         </div>
+
       <% end %>
     </div>
-  <% end %>
+
+    <div id="map"
+      style="width: 300px; height: 600px, margin-left: 20px"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+
+  </div>
 </div>
 <!-- /flip-card-container -->
