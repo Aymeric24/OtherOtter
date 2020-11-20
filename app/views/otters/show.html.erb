@@ -16,14 +16,14 @@
       </div>
     </div>
     <hr>
-      <div id="booking-form-div" data-bookings="<%= @bookings_dates.to_json %>">
+    <div id="booking-form-div" data-bookings="<%= @bookings_dates.to_json %>">
       <div class="container">
         <div class="form-wrapper">
           <h2 id="book-otter">Book <%= @otter.name.capitalize %></h2>
             <%= simple_form_for [@otter, @booking] do |f| %>
               <%= f.input :beginning_date, label: "Select your dates:", as: :string, required: false, input_html: { id: "range_start", class: "d-none" } %>
               <%= f.input :ending_date, label: false, as: :string, required: false, input_html: { id: "range_end", class: "d-none" } %>
-                <%= f.button :submit, "Book now", class:"btn btn-primary"%>
+              <button href="" class="button link-button type3" style="width:100%"><% f.button :submit, "Book Now" %>Book Now</button>
             <% end %>
         </div>
       </div>
