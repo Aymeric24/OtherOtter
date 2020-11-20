@@ -25,15 +25,20 @@
   }
 }
 
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
+// Large devices (desktops, 1040px and up)
+@media (min-width: 1040px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr !important;
+  }
+}
+@media (min-width: 1400px) {
   .cards {
     grid-template-columns: 1fr 1fr 1fr 1fr !important;
   }
