@@ -4,9 +4,8 @@
 </div>
 <div class="container">
 <!-- flip-card-container -->
-  <% @otters.each_slice(4) do |otters| %>
     <div class="cards cards-centered container d-flex justify-content-around">
-      <% otters.each do |otter| %>
+      <% @otters.each do |otter| %>
         <div class="flip-card-container card-category m-4" style="--hue: 220">
           <div class="flip-card">
 
@@ -58,6 +57,5 @@
         </div>
       <% end %>
     </div>
-  <% end %>
 </div>
 <!-- /flip-card-container -->
