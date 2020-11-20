@@ -1,13 +1,11 @@
-<h1>Otter new</h1>
-
-<div class="container">
-<h1>Share your Otter :</h1>
+<div class="form">
+<h1 class="color-title text-center">Come share with us !</h1>
   <%= simple_form_for [@otter] do |f| %>
     <%= f.input :name %>
     <%= f.input :age %>
     <%= f.input :personality %>
     <%= f.input :address %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit %>
+    <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+    <button href="" class="button link-button type3" style="width:90%"><% f.button :submit, "Book Now" %>Share My Otter</button>
   <% end %>
 </div>
