@@ -8,20 +8,21 @@
   background-color: transparent;
   cursor: pointer;
   outline: none;
-  font-size: 20px;
+  font-size: 30px;
   margin: 1em 0.8em;
   text-decoration: none;
 }
 .button:hover{
   text-decoration: none;
 }
+.link-button {
+  color: #068a81 !important;
+}
+
 .link-button:hover {
   color: #068a81 !important;
 }
 
-.link-button {
-  color: #068a81 !important;
-}
 .button.type1 {
   text-decoration: none;
 }
