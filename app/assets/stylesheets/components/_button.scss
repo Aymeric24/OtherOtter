@@ -164,7 +164,7 @@
 
 .button.type5 {
   text-decoration: none;
-  color: #32668a;
+  color: #068a81;
 }
 
 .button.type5.type5::after,
@@ -182,28 +182,28 @@
 .button.type5.type5::after {
   bottom: 0;
   right: 0;
-  border-top-color: #32668a;
+  border-top-color: #068a81;
   border-left-color:transparent;
   border-bottom-color: transparent;
   border-right-color: transparent;
-  color: #32668a;
+  color: #068a81;
 }
 
 .button.type5.type5::before {
   top: 0;
   left: 0;
-  border-bottom-color: #32668a;
+  border-bottom-color: #068a81;
   border-right-color: transparent;
   border-top-color: transparent;
   border-left-color: transparent;
-  color: #32668a;
+  color: #068a81;
 }
 
 .button.type5.type5:hover:after,
 .button.type5.type5:hover:before {
   width: 100%;
   height: 100%;
-  color:#32668a;
+  color:#068a81;
   text-decoration: none;
 }
 
@@ -267,4 +267,14 @@
 
 .trash-icon{
   color: #068a81;
+}
+
+.btn-nav {
+  margin: 0 auto;
+  margin-right: 20px;
+  font-size: 13px!important;
+  text-align: center;
+  vertical-align: middle;
+  height: 40px;
+  width: 150px;
 }
