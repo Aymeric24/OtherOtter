@@ -13,9 +13,9 @@
 <div class="container">
 <!-- flip-card-container -->
   <% @otters.each_slice(4) do |otters| %>
-    <div class="container d-flex justify-content-around">
+    <div class="cards cards-centered container d-flex justify-content-around">
       <% otters.each do |otter| %>
-        <div class="flip-card-container col-md-3 m-4" style="--hue: 220">
+        <div class="card-category flip-card-container col-md-3 m-4" style="--hue: 220">
           <div class="flip-card">
 
             <div class="card-front">
