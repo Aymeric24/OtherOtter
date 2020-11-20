@@ -1,11 +1,4 @@
 class OttersController < ApplicationController
-  def search
-    if params[:query].present?
-      @otters = Otter.near("address ILIKE ?", "%#{params[:query]}%")
-    else
-      @otters = policy_scope(Otter).order(created_at: :desc)
-    end
-  end
 
   def index
     # @otters = Otter.all
@@ -33,7 +26,6 @@ class OttersController < ApplicationController
     @otter = Otter.new(otter_params)
     authorize @otter
     @otter.user = current_user
-    # @otter.address = current_user.adress
     if @otter.save
       redirect_to otter_path(@otter)
     else
