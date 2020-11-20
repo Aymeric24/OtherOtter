@@ -14,11 +14,11 @@
 
     <div class="">
     <!-- flip-card-container -->
-      <% @otters.each_slice(3) do |otters| %>
-        <div class="d-flex justify-content-around" style="width: 600px">
+      <% @otters.each_slice(2) do |otters| %>
+        <div class="index-cards d-flex justify-content-around" style="width: 600px">
 
           <% otters.each do |otter| %>
-            <div class="flip-card-container cards-otters-index" style="--hue: 220" data-otter-id="<%= otter.id %>">
+            <div class="flip-card-container card-category cards-otters-index" style="--hue: 220" data-otter-id="<%= otter.id %>">
 
               <div class="flip-card">
 
@@ -81,7 +81,7 @@
 
     <div id="map"
       class=""
-      style="width: 500px; height: 580px; margin-top:40px; margin-right:0px;"
+      style="width: 300px; height: 580px; margin-top:40px; margin-right:0px;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
