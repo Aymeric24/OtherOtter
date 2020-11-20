@@ -1,6 +1,11 @@
 class OttersController < ApplicationController
   def index
     # @otters = Otters.all
+    # if params[:query].present?
+    #   @otters = Otter.where(name: params[:query])
+    # else
+    #   @otters = Otter.all
+    # end
     if params[:query].present?
       @otters = policy_scope(Otter).near("#{params[:query]}", "10")
     else
