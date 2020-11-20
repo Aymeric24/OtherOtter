@@ -1,6 +1,6 @@
 .cards {
   display: grid!important;
-  grid-template-columns: 1fr 1fr 1fr !important;
+  grid-template-columns: 1fr 1fr 1fr 1fr!important;
   grid-gap: 16px !important;
 }
 
@@ -28,14 +28,14 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr !important;
+    grid-template-columns: 1fr 1fr 1fr 1fr !important;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr !important;
+    grid-template-columns: 1fr 1fr 1fr 1fr !important;
   }
 }
 
