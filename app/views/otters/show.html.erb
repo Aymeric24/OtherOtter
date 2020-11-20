@@ -1,34 +1,32 @@
-<div class="container d-flex justify-content-around" style="min-height: calc(100vh - 158px)">
-  <div class="container-fluid">
-    <div class="">
+<div class="container d-flex justify-content-around">
+    <div class="card-trip">
       <% if @otter.photo.attached? %>
-        <%= cl_image_tag @otter.photo.key, width: 600, crop: :fit, :class => "rounded" %>
+        <%= cl_image_tag @otter.photo.key, crop: :fit, :class => "rounded" %>
       <% end %>
+      <div class="card-trip-infos">
+        <h2><%= @otter.name.capitalize %></h2>
+        <p>Age: <%= @otter.age %> Years old </p>
+        <p>Personality: <%= @otter.personality.capitalize %></p>
+        <% if policy(@otter).edit? %>
+          <%= link_to "", edit_otter_path(@otter), class: "fas fa-edit edit-icon grow-animation-btn-accept-decline" %>
+        <% end %>
+        <% if policy(@otter).destroy? %>
+          <%= link_to "", otter_path(@otter), method: :delete, class: "fas fa-trash-alt trash-icon grow-animation-btn-accept-decline" %>
+        <% end %>
+      </div>
     </div>
-    <div class="">
-      <h1><%= @otter.name.capitalize %></h1>
-        <hr>
-      <p>Age: <%= @otter.age %> Years old </p>
-      <p>Personality: <%= @otter.personality.capitalize %></p>
-        </br>
-      <div id="booking-form-div" data-bookings="<%= @bookings_dates.to_json %>">
+    <hr>
+    <div id="booking-form-div" data-bookings="<%= @bookings_dates.to_json %>">
       <div class="container">
         <div class="form-wrapper">
-          <h2>Book <%= @otter.name.capitalize %></h2>
+          <h2 class="color-title">Book <%= @otter.name.capitalize %></h2>
             <%= simple_form_for [@otter, @booking] do |f| %>
-              <%= f.input :beginning_date, label: "Sélectionnez vos dates:", as: :string, required: false, input_html: { id: "range_start", class: "d-none" } %>
+              <%= f.input :beginning_date, label: "Select your dates:", as: :string, required: false, input_html: { id: "range_start", class: "d-none" } %>
               <%= f.input :ending_date, label: false, as: :string, required: false, input_html: { id: "range_end", class: "d-none" } %>
-              <%= f.submit "Book now",  class: "btn btn-primary"%>
+              <button href="" class="button link-button type3" style="width:100%"><% f.button :submit, "Book Now" %>Book Now</button>
             <% end %>
         </div>
       </div>
-      <% if policy(@otter).edit? %>
-        <hr>
-        <%= link_to "", edit_otter_path(@otter), class: "fas fa-edit" %>
-      <% end %>
-      <% if policy(@otter).destroy? %>
-        <%= link_to "", otter_path(@otter), method: :delete, class: "fas fa-trash-alt" %>
-      <% end %>
     </div>
-  </div>
 </div>
+

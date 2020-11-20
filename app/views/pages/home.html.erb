@@ -9,7 +9,7 @@
       </br>
       </br>
       </br>
-      <%= link_to "See All Otters", otters_path, class:"button link-button type1" %>
+      <%= link_to "Check All Otters", otters_path, class:"home-button button link-button type1"%>
     </div>
   </div>
 </div>
@@ -24,14 +24,14 @@
 </div>
 
 <div class="container mt-3">
-    <h2 id="otter-stars" class="text-align">Our Star Otters</h2>
+    <h2 id="otter-stars" class="color-title text-align">Our Star Otters</h2>
 </div>
 <div class="container">
 <!-- flip-card-container -->
 <% @otters.each_slice(3) do |otters| %>
-  <div class="container d-flex justify-content-around">
+  <div class="cards cards-centered container d-flex justify-content-around">
     <% otters.each do |otter| %>
-      <div class="flip-card-container col-md-3 m-4" style="--hue: 220">
+      <div class="flip-card-container card-category m-4" style="--hue: 220">
         <div class="flip-card">
 
           <div class="card-front">

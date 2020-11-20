@@ -11,7 +11,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
+        <li class="nav-item">
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
@@ -24,7 +24,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
       <%if policy(Otter).create? %>
-        <%= link_to "Add your Otter", new_otter_path, class: "nav-link" %>
+        <%= link_to "Share your Otter", new_otter_path, class: "nav-link btn-nav button link-button type5" %>
       <% end %>
         <li class="nav-item dropdown">
           <%= image_tag "https://pbs.twimg.com/profile_images/1790132162/JP_reasonably_small.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
