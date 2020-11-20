@@ -1,4 +1,4 @@
-<div class="container text-center">
+<div class="container text-center" id="index">
   <h1 class="main-title" id="otters-index-title">Our Otters</h1>
   <hr>
   <%= form_tag otters_path, method: :get do %>
@@ -7,14 +7,14 @@
       class: "form-control",
       placeholder: "Find an otter near you - enter a city"
     %>
-    <%= submit_tag "Search", class: "btn btn-primary mt-1" %>
+    <%= submit_tag "Search", class: "btn btn-primary btn-otter mt-2 grow-animation" %>
   <% end %>
 
-  <div class="" style="display: flex">
+  <div class="d-flex justify-content-between" style="display: flex" id="index-card-map">
 
     <div class="">
     <!-- flip-card-container -->
-      <% @otters.each_slice(2) do |otters| %>
+      <% @otters.each_slice(3) do |otters| %>
         <div class="d-flex justify-content-around" style="width: 600px">
 
           <% otters.each do |otter| %>
@@ -80,7 +80,8 @@
     </div>
 
     <div id="map"
-      style="width: 300px; height: 600px, margin-left: 20px"
+      class=""
+      style="width: 500px; height: 580px; margin-top:40px; margin-right:0px;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
