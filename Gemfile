@@ -35,6 +35,8 @@ gem "devise"
 gem 'pundit'
 # Geocoder
 gem 'geocoder'
+# Algolia
+gem "algoliasearch-rails"
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
